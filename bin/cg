@@ -13,7 +13,7 @@ SCRIPTDIR="$( cd "$(dirname "$BASH_SOURCE")" >/dev/null 2>&1 ; pwd -P )"
 if [ "$COMMAND" = "list" ]; then
   #ls "$SCRIPTDIR/"*.py | xargs -n1 -I{} basename {} .py
   echo "Commands:"
-  find "$SCRIPTDIR" -name \*.py -exec echo '"{}"' \; | xargs -n1 -I{} basename {} .py | xargs -n1 -I{} echo "- " {}
+  find "$SCRIPTDIR" -name \*.py -exec echo '"{}"' \; | xargs -n1 -I{} basename {} .py | sort | xargs -n1 -I{} echo "- " {}
 else
   [ -e "$SCRIPTDIR/$1.py" ] || die "Unknown command: $1"
 
