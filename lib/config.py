@@ -23,21 +23,21 @@ config = None
 def get_config():
   global config
   if config is None:
-    if not os.path.isfile("config.yaml"):
-      raise RuntimeError("Missing config.yaml")
-    config = yaml.safe_load(open("config.yaml"))
+    if not os.path.isfile("cg.yaml"):
+      raise RuntimeError("Missing cg.yaml")
+    config = yaml.safe_load(open("cg.yaml"))
   return config
 
 def store_config(new_config):
   global config
-  yaml.dump(new_config, open("config.yaml", 'w'))
+  yaml.dump(new_config, open("cg.yaml", 'w'))
   config = new_config
 
 def get_token():
   config = get_config()
   token = config.get("token")
   if token is None or token == "Your token goes here":
-    raise RuntimeError("config.yaml is missing token")
+    raise RuntimeError("cg.yaml is missing token")
   return token
 
 courses = None

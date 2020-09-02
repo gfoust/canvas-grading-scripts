@@ -9,7 +9,7 @@ force = '-f' in sys.argv
 if not force:
   try:
     config.get_config()
-    print("You already have a config.yaml!")
+    print("You already have a cg.yaml!")
     print("Use -f flag to overwrite")
     sys.exit()
   except:

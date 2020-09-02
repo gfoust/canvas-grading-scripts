@@ -34,7 +34,6 @@ def full_get(url):
       url += "&per_page=1000"
     else:
       url += "?per_page=1000"
-  print('GET', url)
   response = requests.get(url,
     headers= {
       'Authorization': 'Bearer ' + config.get_token()
@@ -61,7 +60,6 @@ def get_next_link(link_text):
   return None
 
 def put(url, body):
-  print('PUT', url)
   response = requests.put(url,
     headers= {
       'Authorization': 'Bearer ' + config.get_token()

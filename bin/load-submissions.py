@@ -66,3 +66,4 @@ for record in data:
         for attachment in record['attachments']:
           content = canvas.download(attachment['url'])
           config.store_attachment(course['tag'], assignment['tag'], student['tag'], attachment['filename'], content)
+        print(student['tag'], "submission loaded")
