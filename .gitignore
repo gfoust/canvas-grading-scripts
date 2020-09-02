@@ -2,3 +2,4 @@
 python_env
 api
 dir
+**/__pycache__
