@@ -1,5 +1,6 @@
 .vscode
-python_env
+py_env
 api
 dir
 **/__pycache__
+canvasgrade.egg-info

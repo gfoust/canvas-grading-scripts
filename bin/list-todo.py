@@ -6,9 +6,9 @@ import re
 import requests
 import yaml
 
-import canvas
-import config
-import filter
+from canvasgrade import canvas
+from canvasgrade import config
+from canvasgrade import cgfilter
 
 args = [bit for arg in sys.argv[1:] for bit in arg.split('/')]
 
@@ -16,16 +16,16 @@ courses = config.get_courses()
 
 courses = config.get_courses()
 if len(args) >= 1:
-  courses = filter.courses(courses, args[0:1])
+  courses = cgfilter.courses(courses, args[0:1])
 
 for course in courses:
   assignments = config.get_assignments(course['tag'])
   if len(args) >= 2:
-    assignments = filter.assignments(assignments, args[1:2])
+    assignments = cgfilter.assignments(assignments, args[1:2])
   for assignment in assignments:
     students = config.get_students(course['tag'])
     if len(args) >= 3:
-      students = filter.students(students, args[2:3])
+      students = cgfilter.students(students, args[2:3])
     for student in students:
       submission = None
       try:

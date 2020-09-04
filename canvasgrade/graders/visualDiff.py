@@ -1,6 +1,7 @@
 import os
 import sys
-import config
+
+from .. import config
 
 def get_files(ext):
   ext = ext.lower()

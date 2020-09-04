@@ -3,7 +3,7 @@ import sys
 
 import requests
 
-import config
+from . import config
 
 def download(url):
   response = requests.get(url,

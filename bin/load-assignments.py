@@ -6,9 +6,9 @@ import re
 import requests
 import yaml
 
-import canvas
-import config
-import filter
+from canvasgrade import canvas
+from canvasgrade import config
+from canvasgrade import cgfilter
 
 def load_assignments(course_tag, course_id):
   data = canvas.full_get(
@@ -57,7 +57,7 @@ courses = config.get_courses()
 assignments = dict()
 
 if len(sys.argv) >= 2:
-  courses = filter.courses(courses, sys.argv[1:])
+  courses = cgfilter.courses(courses, sys.argv[1:])
 
 for course in courses:
   assignments[course["tag"]] = load_assignments(course["tag"], course["id"])

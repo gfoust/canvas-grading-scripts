@@ -2,7 +2,7 @@
 
 import sys
 
-import config
+from canvasgrade import config
 
 force = '-f' in sys.argv
 

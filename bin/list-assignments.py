@@ -5,14 +5,14 @@ import sys
 
 import yaml
 
-import config
-import filter
+from canvasgrade import config
+from canvasgrade import cgfilter
 
 courses = config.get_courses()
 assignments = dict()
 
 if len(sys.argv) >= 2:
-  courses = filter.courses(courses, sys.argv[1:])
+  courses = cgfilter.courses(courses, sys.argv[1:])
 
 for course in courses:
   assignments[course["tag"]] = config.get_assignments(course["tag"])
